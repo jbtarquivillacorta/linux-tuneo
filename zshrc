@@ -62,9 +62,10 @@ alias la='ls -a'
 alias lla='ls -la'
 
 alias oldcat=cat
-alias cat='batcat --decorations never -l java'
+alias cat='batcat -n'
 
-alias jadx=~/Descargas/programs/jadx/build/jadx/bin/jadx
+alias jadx=~/Downloads/programas/jadx/build/jadx/bin/jadx
+alias jadx-gui=~/Downloads/programas/jadx/build/jadx/bin/jadx-gui
 
 # Plugins
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -91,7 +92,7 @@ bindkey "^[[F" end-of-line
 bindkey "^[[3~" delete-char
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
-source ~/Descargas/programas/powerlevel10k/powerlevel10k.zsh-theme
+source ~/Downloads/programas/powerlevel10k/powerlevel10k.zsh-theme
 
 #configuraciones agregadas
 ZSH_HIGHLIGHT_STYLES[arg0]=fg=cyan,bold #si el comando existe tomara este color
@@ -102,4 +103,4 @@ function target(){
   echo $1 > ~/.config/bin/target
 }
 
-. "$HOME/.local/bin/env"
+#. "$HOME/.local/bin/env"
