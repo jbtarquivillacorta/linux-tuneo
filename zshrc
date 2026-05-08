@@ -103,4 +103,7 @@ function target(){
   echo $1 > ~/.config/bin/target
 }
 
+function mkctf(){
+  mkdir reversing pwm web forense misc cripto stego hardware 
+}
 #. "$HOME/.local/bin/env"
