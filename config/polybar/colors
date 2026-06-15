@@ -22,7 +22,7 @@ black = #000000
 
 ;; Material Colors
 
-red = #e53935
+red = #ff2e2e
 pink = #d81b60
 purple = #8e24aa
 deep-purple = #5e35b1

@@ -9,3 +9,5 @@
 --map-syntax "*.txt:Java"
 --map-syntax "NOTA:Java"
 --map-syntax "config:Java"
+--map-syntax "*.conf:INI"
+--map-syntax "hydra*:Java"

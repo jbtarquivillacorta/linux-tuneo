@@ -33,7 +33,7 @@ include-file = ~/.config/polybar/colors
 
 [bar/parrot]
 width = 16%
-height = 4%
+height = 3%
 offset-x = 1%
 offset-y = 1.5%
 radius = 8
@@ -42,22 +42,20 @@ fixed-center = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-font-0 = Cantarell:size=11
+font-0 = Cantarell:size=11;2
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = FontAwesome:size=10
+font-3 = Symbols Nerd Font:style=Regular;2 
 
 modules-left =
-modules-center = memory cpu fecha
+modules-center = battery cpu fecha
 modules-right = 
-
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
 
 separator = "|"
 
 [bar/right]
 width = 12%
-height = 4%
+height = 3%
 offset-x = 87.5%.
 offset-y = 1.5%
 radius = 8
@@ -66,22 +64,16 @@ fixed-center = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-;line-size = 1
-;line-color = #f00
-
 border-size = 0
 border-color = #00000000
 
-padding-left = 5
-padding-right = 5
-
-font-0 = Cantarell:size=11
+font-0 = Cantarell:size=11;2
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = FontAwesome:size=10
-font-3 = Symbols Nerd Font:style=Regular 
+font-3 = Symbols Nerd Font:style=Regular;2 
 
 modules-left = 
-modules-center = hora powermenu
+modules-center = powermenu pulseaudio hora
 modules-right =
 
 tray-position = right
@@ -89,37 +81,36 @@ tray-padding = 2
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
-
 cursor-click = pointer
 separator = "|"
 
 [bar/ventana] 
-font-0 = Hack Nerd Font Propo:style=Regular
-font-1= Symbols Nerd Font:style=Regular 
+font-0 = Hack Nerd Font Propo:style=Regular;1
+font-1= Symbols Nerd Font:style=Regular
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
 width = 24.0%
-height = 4%
+height = 3.5%
 offset-x = 47.5%
 offset-y = 1.5%
 radius = 8
 
 line-size = 3
 
-;modules-left =
+modules-left =
 modules-center = xworkspaces
-;modules-right =
+modules-right =
 
 [bar/red]
 width = 14.5%
-height = 4%
+height = 3%
 offset-x = 17.5%
 offset-y = 1.5%
 radius = 8
 
-font-0 = Hack Nerd Font Propo:style=Regular
+font-0 = Hack Nerd Font Propo:style=Regular:size=11;2
 font-1= Symbols Nerd Font:style=Regular 
 
 background = ${colors.background}
@@ -128,12 +119,12 @@ modules-center = eth
 
 [bar/htb]
 width = 14.5%
-height = 4%
+height = 3%
 offset-x = 32.5%
 offset-y = 1.5%
 radius = 8
 
-font-0 = Hack Nerd Font Propo:style=Regular
+font-0 = Hack Nerd Font Propo:style=Regular:size=11;2
 font-1= Symbols Nerd Font:style=Regular 
 
 background = ${colors.background}
@@ -142,12 +133,12 @@ modules-center = wlan
 
 [bar/target]
 width = 14.5%
-height = 4%
+height = 3%
 offset-x = 72.5%
 offset-y = 1.5%
 radius = 8
 
-font-0 = Hack Nerd Font Propo:style=Regular
+font-0 = Hack Nerd Font Propo:style=Regular:size=11;2
 font-1= Symbols Nerd Font:style=Regular 
 
 background = ${colors.background}
@@ -179,11 +170,11 @@ label-empty-padding = 1
 type = internal/cpu
 interval = 2
 
-format-prefix = 
+format-prefix =  
 format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-padding-top = 2
+format-prefix-padding-left = 2
 
-label = %percentage:2%%
+label =  %percentage:2%%
 label-padding = 2
 
 [module/memory]
@@ -238,7 +229,7 @@ label-padding = 2
 type = internal/date
 interval = 5
 
-date = %d-%m-%Y
+date = %d-%b-%y
 ;time = %H:%M
 
 label = %date%
@@ -249,9 +240,13 @@ label-padding = 2
 type = internal/pulseaudio
 
 format-volume = <label-volume> 
-label-volume =   %percentage%%
-label-muted =  mute
+label-volume = 󰕾 %percentage%%
+label-volume-padding=3
+
+label-muted = 󰖁 
+label-muted-padding=3
 label-muted-foreground = #666
+
 
 [module/alsa]
 type = internal/alsa
@@ -265,28 +260,32 @@ label-muted =  mute
 
 [module/battery]
 type = internal/battery
-battery = BAT0
+battery = BAT1
 adapter = AC
 full-at = 100
 
-format-charging = <animation-charging> <label-charging>
 
-format-discharging = <label-discharging>
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = %{F#4be349} 
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = %{F#50fa7b} 100 %
+
+animation-charging-0 = 󰁺
+animation-charging-1 = 󰁼
+animation-charging-2 = 󰁿
+animation-charging-3 = %{F#4be349} 󰁹
 animation-charging-framerate = 750
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-3 = 
-animation-discharging-4 = 
-animation-discharging-framerate = 750
+ramp-capacity-0 = %{F#ff0000} 󰁻 
+ramp-capacity-1 = %{F##ff5c5} 󰁼
+ramp-capacity-2 = %{F#fff700} 󰁿
+ramp-capacity-3 = %{F#50fa7b} 󰂀
+ramp-capacity-4 = %{F#50fa7b} 󰁹
+
+
 label-charging = %percentage% %
-label-discharging =  %percentage% %
-label-full = %{F#4be349} %percentage% %
+label-discharging = %percentage% %
+label-discharging-padding=2
+
 
 [module/powermenu]
 type = custom/menu
@@ -299,23 +298,23 @@ label-open-padding = 2
 
 label-close = 󰍜
 label-close-foreground = ${colors.foreground-alt}
-label-close-padding = 1
+label-close-padding-left = 2 
 
 label-separator = |
-;label-separator-foreground = ${colors.foreground-alt}
+label-separator-foreground = ${colors.foreground-alt}
 
 menu-0-0 = 󰑓
 menu-0-0-foreground = ${color.blue}
 menu-0-0-exec = systemctl reboot
 
 menu-0-1 =  
-menu-0-1-foreground = ${color.red}
+menu-0-1-foreground = ${color.blshade5}
 menu-0-1-exec = dm-tool lock
 
 menu-0-2 =  󰒲
 menu-0-2-foreground = ${color.red}
 menu-0-2-exec = systemctl poweroff
-
+menu-0-2-padding-right = 1
 
 [setting]
 screenchange-reload = true

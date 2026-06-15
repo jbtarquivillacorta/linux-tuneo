@@ -67,6 +67,8 @@ alias cat='batcat -n'
 alias jadx=~/Downloads/programas/jadx/build/jadx/bin/jadx
 alias jadx-gui=~/Downloads/programas/jadx/build/jadx/bin/jadx-gui
 
+alias ida=~/Downloads/programas/ida/ida64
+
 # Plugins
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh

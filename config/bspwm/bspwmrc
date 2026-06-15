@@ -3,7 +3,7 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 #fondo de pantalla
-feh --bg-fill ~/Descargas/wallpaper/d.png
+feh --bg-fill ~/Downloads/wallpaper/d.png
 
 bspc monitor -d I II III IV V VI VII VIII IX 
 
@@ -29,3 +29,4 @@ echo '' > ~/.config/bin/target #elimina el contenido en la barra target
 
 #compositor de trnasperencias alternativo a picom este xcompmgr
 pgrep -x xcompmgr > /dev/null || xcompmgr &
+

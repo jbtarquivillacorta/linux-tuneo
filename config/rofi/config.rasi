@@ -6,10 +6,10 @@
     red:                         rgba ( 220, 50, 47, 100 % );
     selected-active-foreground:  var(background);
     lightfg:                     rgba ( 88, 104, 117, 100 % );
-    separatorcolor:              var(foreground);
+    separatorcolor:              var(lightbg);
     urgent-foreground:           var(red);
     alternate-urgent-background: var(lightbg);
-    lightbg:                     rgba ( 238, 232, 213, 100 % );
+    lightbg:                     rgba ( 255, 181, 42, 100 % );
     background-color:            transparent;
     border-color:                black;
     normal-background:           var(background);
@@ -32,11 +32,13 @@
     alternate-urgent-foreground: var(red);
     alternate-active-foreground: var(blue);
 }
+
 element {
     padding: 1px ;
     cursor:  pointer;
     spacing: 5px ;
     border:  0;
+    children: [ element-icon, element-text ];
 }
 element normal.normal {
     background-color: var(normal-background);
@@ -82,7 +84,7 @@ element-text {
 }
 element-icon {
     background-color: transparent;
-
+    size: 1em;
     cursor:           inherit;
     text-color:       inherit;
 }
@@ -148,14 +150,14 @@ inputbar {
     padding:    1px ;
     spacing:    0px ;
     text-color: var(normal-foreground);
-    children:   [ "prompt","textbox-prompt-colon","entry","num-filtered-rows","textbox-num-sep","num-rows","case-indicator" ];
+    children:   [ "entry","num-filtered-rows","textbox-num-sep","num-rows","case-indicator" ];
 }
 case-indicator {
     spacing:    0;
     text-color: var(normal-foreground);
 }
 entry {
-    text-color:        var(normal-foreground);
+    text-color:        var(lightbg);
     cursor:            text;
     spacing:           0;
     placeholder-color: Gray;
